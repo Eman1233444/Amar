@@ -1,53 +1,167 @@
 <!DOCTYPE html>
-<html>
-  <head>
-  <meta charset="utf-8">
-   <meta name="AMAROVA STRANICA" content="width=device-width, initial-scale=1">
-   <title>Amarova Stranica</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Webb Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
-<meta charset="utf-8">
-   <meta name="wiewport" content="width=device-width, initial-scale=1">
-   <title>Pozdrav!</title>
-   </head>
-   <body>
- Pozdrav<b>!!!</b>
-   </body>
-   <p>
-   Notepad++ je besplatan uređivač teksta i izvornog koda otvorenog koda za korištenje sa Microsoft Windowsom. Podržava uređivanje sa karticama, što omogućava rad sa više otvorenih datoteka u jednom prozoru. Naziv proizvoda dolazi od C postfix operatora inkrementa.
+        header {
+            background-color: #171717;
+            color: #dbdbdb;
+            text-align: center;
+            padding: 1em;
+        }
 
-Notepad++ se distribuira kao besplatni softver.
-</p>
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 20px auto;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
 
-<p>
-   Notepad++ je razvio Don Ho u septembru 2003. Ho je prvi put koristio JEXT (urednik teksta zasnovan na Javi) u svojoj kompaniji, ali je, nezadovoljan njegovim lošim performansama, počeo da razvija uređivač teksta napisan na C++ sa Scintillom.
-</p>
-<ul>
-   <li>Amar</li>
-   <li>Mušinbegović</li>
-   <li>Razred : IX1</li>
-   <li>Godina : 15</li>
-   <li>Izgled : 100/100</li>
-</ul>
-<table>
-<table border="1" cellpadding="10" cellspacing="0">
-   <tr>
-      <th>Bosanski jezik</th>
-      <th>Matematika</th>
-      <th>Engleski jezik</th>
-      <th>Informatika</th>
-      <th>Vjeronauka</th>
-   </tr>
-   <tr>
-      <td>5 5 5 4 5</td>
-      <td>4 4 2 3 3</td>
-      <td>2 5 5 4 3</td>
-      <td>5 5 5 4 4</td>
-      <td>5 5 5 5 5</td>
-   </tr>
-</table>
+        .image-frame {
+            flex: 0 0 calc(50% - 20px);
+            margin: 10px;
+            border: 2px solid #dbdbdb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .text-area {
+            flex: 1;
+            padding: 20px;
+            text-align: justify;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .instagram-link {
+            color: #ccff00;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .instagram-icon {
+            margin-left: 5px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination-item {
+            margin: 0 5px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .login-logout {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logout {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            padding: 10px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dobrodošli na Moju Web Stranicu</h1>
+    </header>
+
+    <button class="login-logout" onclick="showPopup()">Log In</button>
+    <button class="logout" onclick="signOut()">Log Out</button>
+
+    <section>
+        <div class="image-frame">
+            <img src="putanja/do/slike1.jpg" alt="Slika 1">
+        </div>
+        
+        <div class="text-area">
+            <p>Ovdje možete dodati svoj tekst koji će biti centriran. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel eleifend velit. Sed eu erat a ligula tristique fermentum.</p>
+        </div>
+
+        <div class="instagram-link">
+            Za više slika, posjetite: <a href="https://www.instagram.com/eman_zahirovic0/" target="_blank">Instagram profil</a>
+            <img src="path/to/instagram-icon.png" alt="Instagram Icon" class="instagram-icon">
+        </div>
+    </section>
+
+    <div class="popup" id="popup">
+        <img src="path/to/small-icon.png" alt="Small Icon">
+        <p>Logovani ste !</p>
+    </div>
+
+    <script>
+        function showPopup() {
+            var popup = document.getElementById('popup');
+            popup.style.display = 'block';
+
+            setTimeout(function () {
+                popup.style.display = 'none';
+            }, 3000);
+        }
+
+        function signOut() {
+            window.location.href = 'https://www.google.com';
+        }
+    </script>
+</body>
 </html>
-<i>Slika Auta...</i><br>
-<img src="data:image/jpeg;base64,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"> <br>
-		<button>KLIKNI ME</button><s-resize 23.23> <br>
-<a href="https://www.instagram.com/amarrama_14/" target="_blank">INSTAGRAM PROFIL</a> <br>
-<a href="https://www.google.com" target="_blank">IZAĐI SA STRANICE!</a>	<br>
+
